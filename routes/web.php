@@ -41,3 +41,5 @@ Route::post('log',[AuthController::class,'login'])->name('log');
 Route::view('contact','user.contact')->name('contact');
 Route::view('aboutus','user.about')->name('about');
 Route::post('subscribe',[FeedbackController::class,'subscribe'])->name('subscribe');
+Route::view('profile','user.acount')->name('profile');
+

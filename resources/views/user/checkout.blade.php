@@ -1,7 +1,7 @@
 @extends('user.layout.layout')
 @section('content')
     <section>
-        <div class="d-flex align-items-center justify-content-center mt-5 container">
+        <div class="d-flex align-items-center justify-content-center mt-5 container" style="margin-bottom: 140px">
             <div class="">
                 <div style="color:#818181">
                     Account / My Account / Product / View Cart / <span class="text-black"> Check Out</span>
@@ -114,7 +114,7 @@
                                             style="width: 50px; height: auto;" />
                                         <img class="mx-1" src="{{ asset('assets\images\visa.jpeg')}}" alt="bank"
                                             style="width: 50px; height: auto;" />
-                                        <img class="mx-1" src="{{asset('mastercard.jpeg')}}" alt="bank"
+                                        <img class="mx-1" src="{{asset('assets\images\mastercard.jpeg')}}" alt="bank"
                                             style="width: 50px; height: auto;" />
 
                                         <img class="mx-1" src="{{asset('assets\images\visa.jpeg')}}" alt="bank"
