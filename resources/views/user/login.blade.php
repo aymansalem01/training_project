@@ -23,10 +23,12 @@
                     <p class="error">{{ $message }}</p>
                 @enderror
                 </div>
-                <div class="btn-coll">
-                <button type="submit" class="btn btn-create mb-3">Log in</button>
-                <div class="login-link mt-2">
-                    <a href="#">Forget password?</a>
+                <div class="row ">
+                    <div class="col-6">
+                <button type="submit" class="btn-log ">Log in</button>
+                </div>
+                <div class="col-5  align-content-center ms-4 " >
+                    <a href="#"class="forget_link" >Forget password?</a>
                 </div>
             </div>
             </form>

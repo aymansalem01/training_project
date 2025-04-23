@@ -10,6 +10,7 @@ use App\Http\Controllers\admin\AdminController;
 use App\Http\Controllers\admin\Admin_userController;
 use App\Http\Controllers\admin\CategoryController;
 use App\Http\Controllers\FeedbackController;
+use App\Http\Controllers\PageLoadController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,9 +23,7 @@ use App\Http\Controllers\FeedbackController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-})->name('home');
+Route::get('/', [PageLoadController::class,'index'])->name('home');
 
 Route::get('/dashboard',[AdminController::class,'index'])->name('admin');
 Route::get('/feedback',[AdminController::class,'feedback'])->name('feedback');

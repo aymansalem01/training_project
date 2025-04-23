@@ -8,6 +8,14 @@
     margin-top: 40px;
     font-weight: 500;
 }
+.btn-log{
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-weight: 500;
+    padding: 16px 48px ;
+}
 .btn-google {
     background-color: white;
     color: #333;
@@ -71,4 +79,8 @@ padding-bottom: 8px;
 }
 .error{
 color: red
+}
+.forget_link{
+    color: #e74c3c;
+    text-decoration: none;
 }

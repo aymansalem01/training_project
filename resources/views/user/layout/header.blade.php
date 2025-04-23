@@ -40,7 +40,8 @@
                                 style="font-size: 16px; font-weight: 400px">About</a>
                         </li>
                         <li class="nav-item px-3">
-                            <a class="nav-link" href="{{route('signup')}}" style="font-size: 16px; font-weight: 400px">Sign Up</a>
+                            <a class="nav-link" href="{{ route('signup') }}"
+                                style="font-size: 16px; font-weight: 400px">Sign Up</a>
                         </li>
                     </ul>
                     <form class="d-flex gap-2">
@@ -59,6 +60,23 @@
                         <div style="margin: 10px; font-size: 25px">
                             <i class="far fa-heart icon" style="margin: 0 20px"></i>
                             <i class="fas fa-shopping-cart icon"></i>
+                        </div>
+                        <div class="btn-group  dropdown">
+                            <button type="button" data-bs-toggle="dropdown" aria-expanded="false" class="user_icon">
+                                <i class="fa-solid fa-user"></i>
+                            </button>
+                            <ul class="dropdown-menu dropdown-menu-dark dropdown-menu-end blur">
+                                <li><a class="dropdown-item" style="font-size: 14px;" href="#"><i
+                                            class="fa-solid fa-user"></i> Manage My Account</a></li>
+                                <li><a class="dropdown-item" href="#"><i class="fa-solid fa-bag-shopping"></i> My
+                                        Order</a></li>
+                                <li><a class="dropdown-item" href="#"><i class="fa-solid fa-circle-xmark"></i> My
+                                        Cancellation</a></li>
+                                <li><a class="dropdown-item" href="#"><i class="fa-solid fa-star"></i> My
+                                        Reviews</a></li>
+                                <li><a class="dropdown-item" href="#"><i style=" transform: scaleX(-1);"
+                                            class="fa-solid fa-arrow-right-to-bracket"></i> Logout</a></li>
+                            </ul>
                         </div>
                     </form>
                 </div>

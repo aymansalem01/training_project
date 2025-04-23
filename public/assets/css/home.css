@@ -14,6 +14,21 @@ nav {
   color: black;
   font-size: 18px;
 }
+.user_icon{
+    border: none;
+    border-radius: 48px;
+    background-color: #DB4444;
+    color: white;
+    width: 32px;
+    height: 32px;
+    margin-top: 10px;
+  }
+  .blur{
+    backdrop-filter: blur(10px);
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    border-radius: 10px;
+  }
 .ul_par {
   margin-left: -40px;
   border: none;
@@ -380,7 +395,7 @@ footer p {
   color: #fff;
   flex-grow: 1;
   border-right: none;
- 
+
 }
 .email-input button {
   background-color: transparent;
@@ -427,4 +442,47 @@ footer p {
   border-top: 1px solid #333;
   color: #aaa;
   font-size: 12px;
+}
+.wishlist{
+  margin-top: 80px;
+}
+.wishlist_Button{
+  text-decoration: none;
+  color: black;
+  padding: 16px 48px;
+  border: solid;
+  font-size: 16px;
+  border-radius: 4px;
+}
+.for_you{
+  margin-top: 80px;
+}
+.card_icon{
+  position: absolute;
+  top: 10px;
+  right: 8px;
+  background-color: white;
+  border: none;
+  color: black;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.form-check-input:checked {
+    background-color: #DB4444 !important;
+    border-color: #DB4444!important;
+}
+
+.form-check-input {
+    height: 24px !important;
+    width: 24px !important;
+    border-color: #dee2e6 !important;
+}
+.for_labe > label{
+    font-size: 16px ;
+    margin-top: 15px;
 }
