@@ -9,8 +9,10 @@ use App\Http\Controllers\admin\CouponController;
 use App\Http\Controllers\admin\AdminController;
 use App\Http\Controllers\admin\Admin_userController;
 use App\Http\Controllers\admin\CategoryController;
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\FeedbackController;
 use App\Http\Controllers\PageLoadController;
+use App\Http\Controllers\WishlistController;
 
 /*
 |--------------------------------------------------------------------------
@@ -38,8 +40,19 @@ Route::view('/login','user.login')->name('login');
 Route::view('signup','user.signup')->name('signup');
 Route::post('sign',[AuthController::class,'signup'])->name('sign');
 Route::post('log',[AuthController::class,'login'])->name('log');
+Route::view('account','user.account')->name('account');
+Route::put('upadte',[AuthController::class,'update'])->name('update');
 Route::view('contact','user.contact')->name('contact');
+Route::post('conect',[FeedbackController::class,'feedback'])->name('conect');
 Route::view('aboutus','user.about')->name('about');
 Route::post('subscribe',[FeedbackController::class,'subscribe'])->name('subscribe');
-Route::view('profile','user.acount')->name('profile');
+Route::view('checkout','user.checkout')->name('checkout');
+
+Route::get('wishlist',[WishlistController::class,'index'])->name('wishlist.index');
+
+Route::get('cart', [CartController::class, 'index'])->name("cart.index");
+Route::post('add-item', [CartController::class, 'addItem'])->name("add-item");
+Route::put('update-cart/{id}',[CartController::class,'update'])->name('update-cart');
+Route::post('/delete-item', [CartController::class, 'delete'])->name('delete-item');
+
 

@@ -10,9 +10,10 @@ class Cart extends Model
     use HasFactory;
     protected $guarded = [];
 
-    public function cart_item()
+    public function items()
     {
-        return $this->hasMany(Cart_items::class);
+        return $this->belongsToMany(Item::class,'cart_items'
+            )->withPivot('quantity');
     }
     public function user()
     {

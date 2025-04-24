@@ -10,7 +10,7 @@
                     <li class="breadcrumb-item " aria-current="page">My Account</li>
                 </ol>
 
-                <div>Welcome! <a href="#" class="text-danger fw-semibold" style="text-decoration: none;">Md Rimel</a>
+                <div>Welcome! <a href="#" class="text-danger fw-semibold" style="text-decoration: none;">{{Auth::user()->name}}</a>
                 </div>
             </div>
 
@@ -29,22 +29,34 @@
                 <div class="col-md-9">
                     <div class="profile-box">
                         <h5 class="  mb-4" style="color: #DB4444;">Edit Your Profile</h5>
-                        <form>
+                        <form action="{{route('update')}}" method="POST">
+                            @csrf
+                            @method("put")
                             <div class="row mb-4 " style="display: flex; justify-content: space-between;">
                                 <div style="width: 48%;">
                                     <label>First Name</label>
-                                    <input type="text" name="first_name" class="form-control" placeholder="Md" />
+
+                                    <input type="text" name="first_name" value="{{Auth::user()->name}}" class="form-control" placeholder="Md" />
+                                    @error('email')
+                                    <p class="first_name">{{ $message }}</p>
+                                @enderror
                                 </div>
                                 <div style="width: 48%;">
                                     <label>Last Name</label>
-                                    <input type="text" name="last_name" class="form-control" placeholder="Rimel" />
+                                    <input type="text" name="last_name"  class="form-control" placeholder="Rimel" />
+                                    @error('last_name')
+                                    <p class="error">{{ $message }}</p>
+                                @enderror
                                 </div>
                             </div>
 
                             <div class="row mb-4" style="display: flex; justify-content: space-between;">
                                 <div style="width: 48%;">
                                     <label>Email</label>
-                                    <input type="email" name="email" class="form-control" placeholder="rimel111@gmail.com" />
+                                    <input type="email" name="email" value="{{Auth::user()->email}}" class="form-control" placeholder="rimel111@gmail.com" />
+                                    @error('email')
+                                        <p class="error">{{ $message }}</p>
+                                    @enderror
                                 </div>
                                 <div style="width: 48%;">
                                     <label>Address</label>
@@ -55,12 +67,21 @@
                             <h6 class="fw-semibold mt-4 mb-3">Password Changes</h6>
                             <div class="mb-3">
                                 <input type="password" name="current_password" class="form-control" placeholder="Current Password" />
+                                @error('current_password')
+                                <p class="error">{{ $message }}</p>
+                            @enderror
                             </div>
                             <div class="mb-3">
                                 <input type="password" name="password" class="form-control" placeholder="New Password" />
+                                @error('password')
+                                <p class="error">{{ $message }}</p>
+                            @enderror
                             </div>
                             <div class="mb-4">
-                                <input type="password" name="password_confirmtions" class="form-control" placeholder="Confirm New Password" />
+                                <input type="password" name="password_confirmation" class="form-control" placeholder="Confirm New Password" />
+                                @error('email')
+                                <p class="error">{{ $message }}</p>
+                            @enderror
                             </div>
                             <div class="d-flex justify-content-end gap-3">
                                 <button type="button" class="btn">Cancel</button>

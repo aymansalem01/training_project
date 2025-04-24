@@ -27,11 +27,9 @@ class User extends Authenticatable
 
     public function cart()
     {
-        return $this->hasMany(Cart::class);
-    }
-    public function wishlist()
-    {
-        return $this->belongsToMany(Item::class, 'wishlists')->withTimestamps();
+        return $this->hasMany(Cart::class)
+            ->where("status", 'active')
+;
     }
     public function review()
     {

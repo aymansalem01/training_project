@@ -58,9 +58,10 @@
                             </button>
                         </div>
                         <div style="margin: 10px; font-size: 25px">
-                            <i class="far fa-heart icon" style="margin: 0 20px"></i>
-                            <i class="fas fa-shopping-cart icon"></i>
+                            <a href="{{route('wishlist.index')}}" style="color: black"><i class="far fa-heart icon" style="margin: 0 20px"></i></a>
+                            <a href="{{route('cart.index')}}" style="color: black" ><i class="fas fa-shopping-cart icon"></i></a>
                         </div>
+                        @auth
                         <div class="btn-group  dropdown">
                             <button type="button" data-bs-toggle="dropdown" aria-expanded="false" class="user_icon">
                                 <i class="fa-solid fa-user"></i>
@@ -78,6 +79,8 @@
                                             class="fa-solid fa-arrow-right-to-bracket"></i> Logout</a></li>
                             </ul>
                         </div>
+                        @endauth
+
                     </form>
                 </div>
             </div>

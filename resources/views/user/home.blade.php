@@ -28,21 +28,24 @@
                         <!-- The slideshow/carousel -->
                         <div class="carousel-inner">
                             <div class="carousel-item active">
-                                <img src="{{ asset('assets\images\11.png')}}" alt="Los Angeles" class="d-block" style="width: 100%; height: 390px" />
+                                <img src="{{ asset('assets\images\11.png') }}" alt="Los Angeles" class="d-block"
+                                    style="width: 100%; height: 390px" />
                                 <div class="carousel-caption">
                                     <h3>Los Angeles</h3>
                                     <p>We had such a great time in LA!</p>
                                 </div>
                             </div>
                             <div class="carousel-item">
-                                <img src="{{ asset('assets\images\11.png')}}" alt="Chicago" class="d-block" style="width: 100%; height: 390px" />
+                                <img src="{{ asset('assets\images\11.png') }}" alt="Chicago" class="d-block"
+                                    style="width: 100%; height: 390px" />
                                 <div class="carousel-caption">
                                     <h3>Chicago</h3>
                                     <p>Thank you, Chicago!</p>
                                 </div>
                             </div>
                             <div class="carousel-item">
-                                <img src="{{ asset('assets\images\11.png')}}" alt="New York" class="d-block" style="width: 100%; height: 390px" />
+                                <img src="{{ asset('assets\images\11.png') }}" alt="New York" class="d-block"
+                                    style="width: 100%; height: 390px" />
                                 <div class="carousel-caption">
                                     <h3>New York</h3>
                                     <p>We love the Big Apple!</p>
@@ -74,62 +77,25 @@
                 </div>
                 <div class="glider-contain">
                     <div class="glider flash_slider">
-                        <div class="card" style="min-width: 270px; height: 350px">
-                            <img class="card-img-top" src="../bootstrap4/img_avatar1.png" alt="Card image"
-                                style="width: 100%; height: 250px" />
-                            <div class="card-body">
-                                <h5 class="card-title">Test</h5>
-                                <h6 class="card-text" style="color: red">$160</h6>
+                        @foreach ($items as $item)
+                            <div class="card" style="min-width: 270px; height: 350px">
+                                <img class="card-img-top" src="{{ asset('images/'. $item->image->first()->image) }}" alt="Card image"
+                                    style="width: 100%; height: 250px" />
+                                <a href=""><i class="fa-solid fa-trash card_icon"></i></a>
+                                <div style="background-color: black; color: white; padding: 5px; text-align: center;">
+                                    <p style="text-decoration: none;color: white;font-size: 12px;"
+                                        onclick="addItem({{ $item->id }})">
+                                        <span><i class="fa-solid fa-cart-plus"> </i> </span>
+                                        Add to Cart
+                                    </p>
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title">{{ $item->name }}</h5>
+                                    <h6 class="card-text" style="color: red">${{ $item->price }}</h6>
+                                </div>
                             </div>
-                        </div>
-                        <div class="card" style="min-width: 300px">
-                            <img class="card-img-top" src="../bootstrap4/img_avatar1.png" alt="Card image"
-                                style="width: 100%" />
-                            <div class="card-body">
-                                <h5 class="card-title">Test</h5>
-                                <h6 class="card-text" style="color: red">$160</h6>
-                            </div>
-                        </div>
-                        <div class="card" style="min-width: 300px">
-                            <img class="card-img-top" src="../bootstrap4/img_avatar1.png" alt="Card image"
-                                style="width: 100%" />
-                            <div class="card-body">
-                                <h5 class="card-title">Test</h5>
-                                <h6 class="card-text" style="color: red">$160</h6>
-                            </div>
-                        </div>
-                        <div class="card" style="min-width: 300px">
-                            <img class="card-img-top" src="../bootstrap4/img_avatar1.png" alt="Card image"
-                                style="width: 100%" />
-                            <div class="card-body">
-                                <h5 class="card-title">Test</h5>
-                                <h6 class="card-text" style="color: red">$160</h6>
-                            </div>
-                        </div>
-                        <div class="card" style="min-width: 300px">
-                            <img class="card-img-top" src="../bootstrap4/img_avatar1.png" alt="Card image"
-                                style="width: 100%" />
-                            <div class="card-body">
-                                <h5 class="card-title">Test</h5>
-                                <h6 class="card-text" style="color: red">$160</h6>
-                            </div>
-                        </div>
-                        <div class="card" style="min-width: 300px">
-                            <img class="card-img-top" src="../bootstrap4/img_avatar1.png" alt="Card image"
-                                style="width: 100%" />
-                            <div class="card-body">
-                                <h5 class="card-title">Test</h5>
-                                <h6 class="card-text" style="color: red">$160</h6>
-                            </div>
-                        </div>
-                        <div class="card" style="min-width: 300px">
-                            <img class="card-img-top" src="../bootstrap4/img_avatar1.png" alt="Card image"
-                                style="width: 100%" />
-                            <div class="card-body">
-                                <h5 class="card-title">Test</h5>
-                                <h6 class="card-text" style="color: red">$160</h6>
-                            </div>
-                        </div>
+                        @endforeach
+
                     </div>
                 </div>
             </div>
@@ -307,7 +273,7 @@
                     <button class="btn-buy">Buy Now!</button>
                 </div>
                 <div class="flash-img">
-                    <img src="{{ asset ('assets\images\jbl.png')}}" alt="Speaker" />
+                    <img src="{{ asset('assets\images\jbl.png') }}" alt="Speaker" />
                 </div>
             </div>
         </div>
@@ -486,7 +452,7 @@
             </div>
             <div class="promo-grid">
                 <div class="left-large">
-                    <img src="{{asset('assets\images\ps5.png')}}" alt="PlayStation 5" />
+                    <img src="{{ asset('assets\images\ps5.png') }}" alt="PlayStation 5" />
                     <div class="text">
                         <h3>PlayStation 5</h3>
                         <p>Black and White version of the PS5 coming out on sale.</p>
@@ -496,7 +462,8 @@
 
                 <div class="right-grid">
                     <div class="box" style="grid-column: span 2">
-                        <img src="{{asset ('assets\images\woman.jpg')}}" class="merror_image" alt="Women's Collections" style="left: 80px" />
+                        <img src="{{ asset('assets\images\woman.jpg') }}" class="merror_image" alt="Women's Collections"
+                            style="left: 80px" />
                         <div class="text">
                             <h3>Women’s Collections</h3>
                             <p>Featured woman collections that give you another vibe.</p>
@@ -505,7 +472,7 @@
                     </div>
 
                     <div class="box">
-                        <img src="{{asset('assets\images\spaker.png')}}" alt="Speakers" style="left: 20px" />
+                        <img src="{{ asset('assets\images\spaker.png') }}" alt="Speakers" style="left: 20px" />
                         <div class="text">
                             <h3>Speakers</h3>
                             <p>Amazon wireless speakers</p>
@@ -514,7 +481,7 @@
                     </div>
 
                     <div class="box">
-                        <img src="{{asset('assets\images\parfum.png')}}" alt="Perfume" />
+                        <img src="{{ asset('assets\images\parfum.png') }}" alt="Perfume" />
                         <div class="text">
                             <h3>Perfume</h3>
                             <p>GUCCI INTENSE OUD EDP</p>
@@ -563,4 +530,6 @@
         </div>
     </section>
     <!---------------------------------------------------------------->
+    <script src="{{ asset('assets\js\home.js') }}"></script>
 @endsection
+

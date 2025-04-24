@@ -11,27 +11,33 @@
                 </div>
             </div>
             <div class="best_sell" style="margin-top: 60px;">
+                @forelse ($wishlist as $wish )
                 <div class="card" style="min-width: 270px">
-                    <img class="card-img-top" src="../bootstrap4/img_avatar1.png" alt="Card image"
+                    <img class="card-img-top" src="{{ asset('public/images/' . $wish->item->images->first()->path) }}" alt="Card image"
                         style="width: 100%; height: 270px" />
                     <i class="fa-solid fa-trash card_icon"></i>
                     <div style="background-color: black; color: white; padding: 5px; text-align: center;">
-                        <a href="" style="text-decoration: none;color: white;font-size: 12px;">
+                        <p onclick="addItem({{$wish->item->id}})" style="color: white;font-size: 12px;">
                             <span><i class="fa-solid fa-cart-plus"> </i> </span>
                             Add to Cart
-                        </a>
+                        </p>
                     </div>
                     <div class="card-body">
-                        <h5 class="card-title">Test</h5>
-                        <h6 class="card-text" style="color: red">$160</h6>
+                        <h5 class="card-title">{{$wish->item->name}}</h5>
+                        <h6 class="card-text" style="color: red">${{$wish->item->price}}</h6>
                     </div>
                 </div>
+                @empty
+                <div >
+                    <h4 style="color: #DB4444">you don't have any product in wishlist</h4>
+                </div>
+                @endforelse
             </div>
         </div>
 
 
     </section>
-    <section class="for_you">
+    <section class="for_you" style="margin-bottom: 140px">
         <div class="container">
             <div style="display: flex; justify-content: space-between">
                 <div>
@@ -42,21 +48,23 @@
                 </div>
             </div>
             <div class="best_sell" style="margin-top: 60px;">
+                @foreach ($products as $product )
                 <div class="card" style="min-width: 270px;">
-                    <img class="card-img-top" src="../bootstrap4/img_avatar1.png" alt="Card image"
+                    <img class="card-img-top" src="{{ asset('images/'. $product->image->first()->image) }}" alt="Card image"
                         style="width: 100%; height: 270px;" />
                     <i class="fa-solid fa-eye card_icon"></i>
-                    <div style="background-color: black; color: white; padding: 5px; text-align: center;">
-                        <a href="" style="text-decoration: none;color: white;font-size: 12px;">
+                    <div class="add_tocart" style="background-color: black; color: white; padding: 5px; text-align: center;">
+                        <p onclick="addItem({{$product->id}})" style="color: white;font-size: 12px;">
                             <i class="fa-solid fa-cart-plus"></i>
                             Add to Cart
-                        </a>
+                        </p>
                     </div>
                     <div class="card-body">
-                        <h5 class="card-title">Test</h5>
-                        <h6 class="card-text" style="color: red;">$160</h6>
+                        <h5 class="card-title">{{$product->name}}</h5>
+                        <h6 class="card-text" style="color: red;">${{$product->price}}</h6>
                     </div>
                 </div>
+                @endforeach
             </div>
         </div>
     </section>

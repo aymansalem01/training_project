@@ -94,6 +94,16 @@ nav {
     margin-right: 15px;
     width: 270px;
     height: 322px;
+    border: none;
+}
+.card:hover{
+    .add_tocart{
+        display: block;
+    }
+}
+
+.add_tocart{
+display: none;
 }
 .view_bt {
     background: #e53935;
@@ -558,6 +568,7 @@ footer p {
     width: 100%;
     height: 370px;
     border-radius: 10px;
+    border: none;
 }
 
 .team-name {

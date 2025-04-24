@@ -96,23 +96,20 @@ class AuthController extends Controller
         return redirect()->route('log');
     }
 
-    public function edit()
-    {
-        $id = auth()->user()->id;
-        return redirect()->route('edit', $id);
-    }
-    public function update(Request $request, string $id)
+
+    public function update(Request $request)
     {
         $request->validate([
-            'name' => 'required|min:3',
-            'phone_number' => 'required|regex:/^07[0-9]{8}$/',
+            'first_name' => 'required|min:3',
+            'email' =>'required |email',
             'password' => 'required|min:8|confirmed',
         ]);
-        $user = User::find($id);
-        if ($user->name != $request->name || $user->phone_number != $request->phone_number) {
-            $user->update([
-                'name' => $request->name,
-                'phone_number' => $request->phone_number,
+        $name = $request->first_name ." ". $request->last_name;
+        $user = Auth::user();
+        if (Hash::check( $request->password, $user->password)) {
+            User::find($user->id)->update([
+                'name' => $name,
+                'email' => $request->email,
                 'password' => Hash::make($request->password)
             ]);
 

@@ -35,10 +35,10 @@
             <div class="col-md-2 col-sm-6 mb-4">
                 <h5 style="font-size: 20px">Account</h5>
                 <ul>
-                    <li><a href="#" style="font-size: 16px">My Account</a></li>
+                    <li><a href="{{route('account')}}" style="font-size: 16px">My Account</a></li>
                     <li><a href="{{route('signup')}}" style="font-size: 16px">Login / Register</a></li>
-                    <li><a href="#" style="font-size: 16px">Cart</a></li>
-                    <li><a href="#" style="font-size: 16px">Wishlist</a></li>
+                    <li><a href="{{route('cart.index')}}" style="font-size: 16px">Cart</a></li>
+                    <li><a href="{{route('cart.index')}}" style="font-size: 16px">Wishlist</a></li>
                     <li><a href="#" style="font-size: 16px">Shop</a></li>
                 </ul>
             </div>
@@ -48,7 +48,7 @@
                 <h5 style="font-size: 20px">Quick Link</h5>
                 <ul>
                     <li><a href="#" style="font-size: 16px">Privacy Policy</a></li>
-                    <li><a href="#" style="font-size: 16px">Terms Of Use</a></li>
+                    <li><a href="{{route('about')}}" style="font-size: 16px">About Us</a></li>
                     <li><a href="{{route('contact')}}" style="font-size: 16px">FAQ</a></li>
                     <li><a href="{{route('contact')}}" style="font-size: 16px">Contact</a></li>
                 </ul>
@@ -85,10 +85,33 @@
     </div>
 </footer>
 
-<script src="{{ asset('assets\js\home.js') }}"></script>
+
 <script src="https://cdn.jsdelivr.net/npm/glider-js@1/glider.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<script>
+    function addItem(itemId) {
+        const csrfToken = "{{ csrf_token() }}";
+        const deleteItemRoute = "{{ route('delete-item') }}";
+    $.ajax({
+        url: deleteItemRoute,
+        method: "POST",
+        data: {
+            _token: csrfToken,
+            itemId: itemId,
+        },
+        success: function(response) {
+            console.log("Deleted:", response.message);
+            location.reload(); 
+        },
+        error: function(xhr) {
+            console.error("Error:", xhr.responseText);
+        }
+    });
+}
+
+</script>
 </body>
 
 </html>
