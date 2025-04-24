@@ -7,7 +7,7 @@
                     <h5>Wishlist</h5>
                 </div>
                 <div>
-                    <a href="" class=" wishlist_Button me-5">Move All To Bag</a>
+                    <a href="" onclick="moveAllToCart()" class=" wishlist_Button me-5">Move All To Bag</a>
                 </div>
             </div>
             <div class="best_sell" style="margin-top: 60px;">
@@ -68,4 +68,26 @@
             </div>
         </div>
     </section>
+    <script>
+        function moveAllToCart() {
+    const moveToCartRoute = "{{ route('wishlist.moveToCart') }}";
+    const csrfToken = "{{ csrf_token() }}";
+
+    $.ajax({
+        url: moveToCartRoute,
+        method: "POST",
+        data: {
+            _token: csrfToken
+        },
+        success: function(response) {
+            alert(response.message);
+            location.reload();
+        },
+        error: function(xhr, status, error) {
+            console.error("Error:", error);
+            alert(xhr.responseJSON.message || "Something went wrong.");
+        }
+    });
+}
+    </script>
 @endsection

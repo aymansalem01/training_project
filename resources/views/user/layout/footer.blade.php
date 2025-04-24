@@ -5,20 +5,22 @@
             <div class="col-md-3 col-sm-6 mb-4">
                 <h5 style="font-size: 24px">Exclusive</h5>
                 <ul>
-                    <li><p  style="font-size: 20px;color:white">Subscribe</p></li>
+                    <li>
+                        <p style="font-size: 20px;color:white">Subscribe</p>
+                    </li>
                 </ul>
                 <p style="color: white; font-size: 16px">
                     Get 10% off your first order
                 </p>
-                <form action="{{route('subscribe')}}" method="POST" >
+                <form action="{{ route('subscribe') }}" method="POST">
                     @csrf
-                <div class="email-input" style="width: 75%">
-                    <input type="email" name="email" placeholder="Enter your email" />
-                    <button type="submit">
-                        <i class="fas fa-angle-right"></i>
-                    </button>
-                </div>
-            </form>
+                    <div class="email-input" style="width: 75%">
+                        <input type="email" name="email" placeholder="Enter your email" />
+                        <button type="submit">
+                            <i class="fas fa-angle-right"></i>
+                        </button>
+                    </div>
+                </form>
             </div>
 
             <!-- Column 2 -->
@@ -35,10 +37,10 @@
             <div class="col-md-2 col-sm-6 mb-4">
                 <h5 style="font-size: 20px">Account</h5>
                 <ul>
-                    <li><a href="{{route('account')}}" style="font-size: 16px">My Account</a></li>
-                    <li><a href="{{route('signup')}}" style="font-size: 16px">Login / Register</a></li>
-                    <li><a href="{{route('cart.index')}}" style="font-size: 16px">Cart</a></li>
-                    <li><a href="{{route('cart.index')}}" style="font-size: 16px">Wishlist</a></li>
+                    <li><a href="{{ route('account') }}" style="font-size: 16px">My Account</a></li>
+                    <li><a href="{{ route('signup') }}" style="font-size: 16px">Login / Register</a></li>
+                    <li><a href="{{ route('cart.index') }}" style="font-size: 16px">Cart</a></li>
+                    <li><a href="{{ route('cart.index') }}" style="font-size: 16px">Wishlist</a></li>
                     <li><a href="#" style="font-size: 16px">Shop</a></li>
                 </ul>
             </div>
@@ -48,9 +50,9 @@
                 <h5 style="font-size: 20px">Quick Link</h5>
                 <ul>
                     <li><a href="#" style="font-size: 16px">Privacy Policy</a></li>
-                    <li><a href="{{route('about')}}" style="font-size: 16px">About Us</a></li>
-                    <li><a href="{{route('contact')}}" style="font-size: 16px">FAQ</a></li>
-                    <li><a href="{{route('contact')}}" style="font-size: 16px">Contact</a></li>
+                    <li><a href="{{ route('about') }}" style="font-size: 16px">About Us</a></li>
+                    <li><a href="{{ route('contact') }}" style="font-size: 16px">FAQ</a></li>
+                    <li><a href="{{ route('contact') }}" style="font-size: 16px">Contact</a></li>
                 </ul>
             </div>
 
@@ -92,25 +94,76 @@
 
 <script>
     function addItem(itemId) {
-        const csrfToken = "{{ csrf_token() }}";
-        const deleteItemRoute = "{{ route('delete-item') }}";
-    $.ajax({
-        url: deleteItemRoute,
-        method: "POST",
-        data: {
-            _token: csrfToken,
-            itemId: itemId,
-        },
-        success: function(response) {
-            console.log("Deleted:", response.message);
-            location.reload(); 
-        },
-        error: function(xhr) {
-            console.error("Error:", xhr.responseText);
-        }
-    });
-}
+        $.ajax({
+            url: "{{ route('add-item') }}",
+            method: "POST",
+            data: {
+                _token: "{{ csrf_token() }}",
+                itemId: itemId,
+            },
+            success: function(response) {
+                console.log(response);
+            }
+        });
+    }
 
+    function deleteItem(itemId) {
+        const deleteItemRoute = "{{ url('/delete-item') }}";
+        const csrfToken = "{{ csrf_token() }}";
+        $.ajax({
+            url: deleteItemRoute,
+            method: "POST",
+            data: {
+                _token: csrfToken,
+                itemId: itemId,
+            },
+            success: function(response) {
+                console.log("Deleted:", response.message);
+                location.reload();
+            },
+        });
+    }
+
+    function AddWishlist(itemId) {
+        console.log("Sending ID:", itemId);
+        $.ajax({
+            url: "{{ route('wishlist.add') }}",
+            method: "POST",
+            data: {
+                _token: "{{ csrf_token() }}",
+                itemId: itemId,
+            },
+            success: function(response) {
+                console.log("Added:", response.message);
+            },
+            error: function(xhr, status, error) {
+                console.error("Error:", error);
+                console.log("Response Text:", xhr.responseText);
+            }
+        });
+    }
+
+
+    function deleteWishlist(itemId) {
+        const deleteWishlistRoute = "{{ url('/wishlist.delete') }}";
+        const csrfToken = "{{ csrf_token() }}";
+        $.ajax({
+            url: deleteWishlistRoute,
+            method: "POST",
+            data: {
+                _token: csrfToken,
+                itemId: itemId,
+            },
+            success: function(response) {
+                console.log("Deleted:", response.message);
+                location.reload();
+            },
+            error: function(xhr, status, error) {
+                console.error("Error:", error);
+                console.log("Response Text:", xhr.responseText);
+            }
+        });
+    }
 </script>
 </body>
 

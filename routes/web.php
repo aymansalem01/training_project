@@ -14,6 +14,7 @@ use App\Http\Controllers\FeedbackController;
 use App\Http\Controllers\PageLoadController;
 use App\Http\Controllers\WishlistController;
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -36,10 +37,14 @@ Route::resource('category',CategoryController::class);
 Route::get('payment',[AdminController::class,'payment'])->name('payment');
 Route::get('paymen/{id}',[AdminController::class,'show_payment'])->name('show_payment');
 
+
+
+
 Route::view('/login','user.login')->name('login');
 Route::view('signup','user.signup')->name('signup');
 Route::post('sign',[AuthController::class,'signup'])->name('sign');
 Route::post('log',[AuthController::class,'login'])->name('log');
+Route::get('logout',[AuthController::class,'logout'])->name('logout');
 Route::view('account','user.account')->name('account');
 Route::put('upadte',[AuthController::class,'update'])->name('update');
 Route::view('contact','user.contact')->name('contact');
@@ -48,11 +53,26 @@ Route::view('aboutus','user.about')->name('about');
 Route::post('subscribe',[FeedbackController::class,'subscribe'])->name('subscribe');
 Route::view('checkout','user.checkout')->name('checkout');
 
+
+
+
+
+
 Route::get('wishlist',[WishlistController::class,'index'])->name('wishlist.index');
 
 Route::get('cart', [CartController::class, 'index'])->name("cart.index");
 Route::post('add-item', [CartController::class, 'addItem'])->name("add-item");
 Route::put('update-cart/{id}',[CartController::class,'update'])->name('update-cart');
-Route::post('/delete-item', [CartController::class, 'delete'])->name('delete-item');
+Route::post('/delete-item', [CartController::class, 'deleteItem'])->name('delete-item');
+
+Route::post('/wishlist.add', [WishlistController::class, 'addwish'])->name('wishlist.add');
+Route::post('/wishlist.delete', [WishlistController::class, 'deletewish'])->name('wishlist.delete');
+Route::get('/wishlist/move-to-cart', [WishlistController::class, 'moveAllToCart'])->name('wishlist.moveToCart');
+
+
+
+
+
+
 
 

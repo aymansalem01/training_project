@@ -10,7 +10,12 @@ class PageLoadController extends Controller
 {
     public function index()
     {
-        $items= Item::get();
-        return view('user.home',['items'=>$items]);
+        $items = Item::where('discount', '>', 0)->get();
+        $best_sales = Item::withCount('review')
+        ->orderByDesc('review_count')
+        ->limit(4)
+        ->get();
+        $all = Item::get();
+        return view('user.home',['items'=>$items , 'best_sales' =>$best_sales , 'all' => $all]);
     }
 }

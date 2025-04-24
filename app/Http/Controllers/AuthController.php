@@ -93,7 +93,7 @@ class AuthController extends Controller
             $token->delete();
         });
         Auth::logout();
-        return redirect()->route('log');
+        return redirect()->route('login');
     }
 
 

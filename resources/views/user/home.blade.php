@@ -28,27 +28,63 @@
                         <!-- The slideshow/carousel -->
                         <div class="carousel-inner">
                             <div class="carousel-item active">
-                                <img src="{{ asset('assets\images\11.png') }}" alt="Los Angeles" class="d-block"
+                                <img src="{{ asset('assets\images\11.png') }}" alt="iPhone 14 Promotion" class="d-block"
                                     style="width: 100%; height: 390px" />
-                                <div class="carousel-caption">
-                                    <h3>Los Angeles</h3>
-                                    <p>We had such a great time in LA!</p>
+                                <div class="carousel-caption text-start" style="top: 50%; transform: translateY(-50%); bottom: auto; left: 10%;">
+                                    <div class="d-flex align-items-center mb-3">
+                                        <img src="{{ asset('assets\images\apple.png') }}" alt="Apple Logo" style="width: 40px; height: auto; margin-right: 15px;">
+                                        <span class="text-white">iPhone 14 Series</span>
+                                    </div>
+                                    <h1 class="display-4 fw-bold mb-3">Up to 10%<br>off Voucher</h1>
+                                    <div class="mt-4">
+                                        <a href="#" class="text-white text-decoration-none fw-bold">
+                                            Shop Now
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
+                                                <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
+                                            </svg>
+                                        </a>
+                                        <hr style="width: 120px; height: 2px; opacity: 1;" class="mt-1">
+                                    </div>
                                 </div>
                             </div>
-                            <div class="carousel-item">
-                                <img src="{{ asset('assets\images\11.png') }}" alt="Chicago" class="d-block"
+                            <div class="carousel-item ">
+                                <img src="{{ asset('assets\images\11.png') }}" alt="iPhone 14 Promotion" class="d-block"
                                     style="width: 100%; height: 390px" />
-                                <div class="carousel-caption">
-                                    <h3>Chicago</h3>
-                                    <p>Thank you, Chicago!</p>
+                                <div class="carousel-caption text-start" style="top: 50%; transform: translateY(-50%); bottom: auto; left: 10%;">
+                                    <div class="d-flex align-items-center mb-3">
+                                        <img src="{{ asset('assets\images\apple.png') }}" alt="Apple Logo" style="width: 40px; height: auto; margin-right: 15px;">
+                                        <span class="text-white">iPhone 14 Series</span>
+                                    </div>
+                                    <h1 class="display-4 fw-bold mb-3">Up to 10%<br>off Voucher</h1>
+                                    <div class="mt-4">
+                                        <a href="#" class="text-white text-decoration-none fw-bold">
+                                            Shop Now
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
+                                                <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
+                                            </svg>
+                                        </a>
+                                        <hr style="width: 120px; height: 2px; opacity: 1;" class="mt-1">
+                                    </div>
                                 </div>
                             </div>
-                            <div class="carousel-item">
-                                <img src="{{ asset('assets\images\11.png') }}" alt="New York" class="d-block"
+                            <div class="carousel-item ">
+                                <img src="{{ asset('assets\images\11.png') }}" alt="iPhone 14 Promotion" class="d-block"
                                     style="width: 100%; height: 390px" />
-                                <div class="carousel-caption">
-                                    <h3>New York</h3>
-                                    <p>We love the Big Apple!</p>
+                                <div class="carousel-caption text-start" style="top: 50%; transform: translateY(-50%); bottom: auto; left: 10%;">
+                                    <div class="d-flex align-items-center mb-3">
+                                        <img src="{{ asset('assets\images\apple.png') }}" alt="Apple Logo" style="width: 40px; height: auto; margin-right: 15px;">
+                                        <span class="text-white">iPhone 14 Series</span>
+                                    </div>
+                                    <h1 class="display-4 fw-bold mb-3">Up to 10%<br>off Voucher</h1>
+                                    <div class="mt-4">
+                                        <a href="#" class="text-white text-decoration-none fw-bold">
+                                            Shop Now
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
+                                                <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
+                                            </svg>
+                                        </a>
+                                        <hr style="width: 120px; height: 2px; opacity: 1;" class="mt-1">
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -79,9 +115,10 @@
                     <div class="glider flash_slider">
                         @foreach ($items as $item)
                             <div class="card" style="min-width: 270px; height: 350px">
-                                <img class="card-img-top" src="{{ asset('images/'. $item->image->first()->image) }}" alt="Card image"
-                                    style="width: 100%; height: 250px" />
-                                <a href=""><i class="fa-solid fa-trash card_icon"></i></a>
+                                <img class="card-img-top" src="{{ asset('images/' . $item->image->first()->image) }}"
+                                    alt="Card image" style="width: 100%; height: 250px" />
+                                <a onclick="AddWishlist({{ $item->id }})">
+                                    <i class="fa-solid fa-heart card_icon"></i></a>
                                 <div style="background-color: black; color: white; padding: 5px; text-align: center;">
                                     <p style="text-decoration: none;color: white;font-size: 12px;"
                                         onclick="addItem({{ $item->id }})">
@@ -91,7 +128,10 @@
                                 </div>
                                 <div class="card-body">
                                     <h5 class="card-title">{{ $item->name }}</h5>
-                                    <h6 class="card-text" style="color: red">${{ $item->price }}</h6>
+                                    <h6 class="card-text" style="color: red">${{ $item->total_price }}
+                                        <span
+                                            style="color:black;margin-left; text-decoration: line-through ">{{ $item->price }}$</span>
+                                    </h6>
                                 </div>
                             </div>
                         @endforeach
@@ -209,38 +249,29 @@
                 </div>
             </div>
             <div class="best_sell">
-                <div class="card" style="min-width: 270px">
-                    <img class="card-img-top" src="../bootstrap4/img_avatar1.png" alt="Card image"
-                        style="width: 100%; height: 250px" />
-                    <div class="card-body">
-                        <h5 class="card-title">Test</h5>
-                        <h6 class="card-text" style="color: red">$160</h6>
+                @foreach ($best_sales as $item)
+                    <div class="card" style="min-width: 270px; height: 350px">
+                        <img class="card-img-top" src="{{ asset('images/' . $item->image->first()->image) }}"
+                            alt="Card image" style="width: 100%; height: 250px" />
+                        <a onclick="AddWishlist({{ $item->id }})">
+                            <i class="fa-solid fa-heart card_icon"></i></a>
+                        <div style="background-color: black; color: white; padding: 5px; text-align: center;">
+                            <p style="text-decoration: none;color: white;font-size: 12px;"
+                                onclick="addItem({{ $item->id }})">
+                                <span><i class="fa-solid fa-cart-plus"> </i> </span>
+                                Add to Cart
+                            </p>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">{{ $item->name }}</h5>
+                            <h6 class="card-text" style="color: red">${{ $item->total_price }}
+                                <span
+                                    style="color:black;margin-left; text-decoration: line-through ">{{ $item->price }}$</span>
+                            </h6>
+                        </div>
                     </div>
-                </div>
-                <div class="card" style="min-width: 250px">
-                    <img class="card-img-top" src="../bootstrap4/img_avatar1.png" alt="Card image"
-                        style="width: 100%" />
-                    <div class="card-body">
-                        <h5 class="card-title">Test</h5>
-                        <h6 class="card-text" style="color: red">$160</h6>
-                    </div>
-                </div>
-                <div class="card" style="min-width: 250px">
-                    <img class="card-img-top" src="../bootstrap4/img_avatar1.png" alt="Card image"
-                        style="width: 100%" />
-                    <div class="card-body">
-                        <h5 class="card-title">Test</h5>
-                        <h6 class="card-text" style="color: red">$160</h6>
-                    </div>
-                </div>
-                <div class="card" style="min-width: 250px">
-                    <img class="card-img-top" src="../bootstrap4/img_avatar1.png" alt="Card image"
-                        style="width: 100%" />
-                    <div class="card-body">
-                        <h5 class="card-title">Test</h5>
-                        <h6 class="card-text" style="color: red">$160</h6>
-                    </div>
-                </div>
+                @endforeach
+
             </div>
         </div>
     </section>
@@ -296,152 +327,84 @@
                         </button>
                     </div>
                 </div>
-                <div class="glider-contain">
-                    <div class="glider glider2 flash_slider">
-                        <div class="row row-cols-1 g-3">
-                            <div class="card col" style="min-width: 270px">
-                                <img class="card-img-top" src="../bootstrap4/img_avatar1.png" alt="Card image"
-                                    style="width: 100%; height: 250px" />
-                                <div class="card-body">
-                                    <h5 class="card-title">Test</h5>
-                                    <h6 class="card-text" style="color: red">$160</h6>
+                <div class="glider-contain" >
+                    <div class="glider glider2 p-5">
+                        @foreach ($all->chunk(8) as $group)
+                            <div>
+                                <div class="container">
+                                    <div class="row row-cols-1 row-cols-md-4 g-3 mb-3">
+                                        @foreach ($group->slice(0, 4) as $item)
+                                            <div class="col">
+                                                <div class="card" style="min-width: 270px; height: 350px">
+                                                    <img class="card-img-top"
+                                                        src="{{ asset('images/' . ($item->image->first()->image ?? 'default.jpg')) }}"
+                                                        alt="Card image" style="width: 100%; height: 250px" />
+                                                    <a onclick="AddWishlist({{ $item->id }})">
+                                                        <i class="fa-solid fa-heart card_icon"></i>
+                                                    </a>
+                                                    <div
+                                                        style="background-color: black; color: white; padding: 5px; text-align: center;">
+                                                        <p style="font-size: 12px; cursor: pointer;"
+                                                            onclick="addItem({{ $item->id }})">
+                                                            <i class="fa-solid fa-cart-plus"></i> Add to Cart
+                                                        </p>
+                                                    </div>
+                                                    <div class="card-body">
+                                                        <h5 class="card-title">{{ $item->name }}</h5>
+                                                        <h6 class="card-text" style="color: red;">
+                                                            ${{ $item->total_price }}
+                                                            <span
+                                                                style="color: black; margin-left: 8px; text-decoration: line-through;">
+                                                                ${{ $item->price }}
+                                                            </span>
+                                                        </h6>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        @endforeach
+                                    </div>
+                                    <div class="row row-cols-1 row-cols-md-4 g-3">
+                                        @foreach ($group->slice(4, 4) as $item)
+                                            <div class="col">
+                                                <div class="card" style="min-width: 270px; height: 350px">
+                                                    <img class="card-img-top"
+                                                        src="{{ asset('images/' . ($item->image->first()->image ?? 'default.jpg')) }}"
+                                                        alt="Card image" style="width: 100%; height: 250px" />
+                                                    <a onclick="AddWishlist({{ $item->id }})">
+                                                        <i class="fa-solid fa-heart card_icon"></i>
+                                                    </a>
+                                                    <div
+                                                        style="background-color: black; color: white; padding: 5px; text-align: center;">
+                                                        <p style="font-size: 12px; cursor: pointer;"
+                                                            onclick="addItem({{ $item->id }})">
+                                                            <i class="fa-solid fa-cart-plus"></i> Add to Cart
+                                                        </p>
+                                                    </div>
+                                                    <div class="card-body">
+                                                        <h5 class="card-title">{{ $item->name }}</h5>
+                                                        <h6 class="card-text" style="color: red;">
+                                                            ${{ $item->total_price }}
+                                                            <span
+                                                                style="color: black; margin-left: 8px; text-decoration: line-through;">
+                                                                ${{ $item->price }}
+                                                            </span>
+                                                        </h6>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        @endforeach
+                                    </div>
                                 </div>
                             </div>
-                            <div class="card col" style="min-width: 270px">
-                                <img class="card-img-top" src="../bootstrap4/img_avatar1.png" alt="Card image"
-                                    style="width: 100%; height: 250px" />
-                                <div class="card-body">
-                                    <h5 class="card-title">Test</h5>
-                                    <h6 class="card-text" style="color: red">$160</h6>
-                                </div>
-                            </div>
-                            <div class="card col" style="min-width: 270px">
-                                <img class="card-img-top" src="../bootstrap4/img_avatar1.png" alt="Card image"
-                                    style="width: 100%; height: 250px" />
-                                <div class="card-body">
-                                    <h5 class="card-title">Test</h5>
-                                    <h6 class="card-text" style="color: red">$160</h6>
-                                </div>
-                            </div>
-                            <div class="card col" style="min-width: 270px">
-                                <img class="card-img-top" src="../bootstrap4/img_avatar1.png" alt="Card image"
-                                    style="width: 100%; height: 250px" />
-                                <div class="card-body">
-                                    <h5 class="card-title">Test</h5>
-                                    <h6 class="card-text" style="color: red">$160</h6>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row row-cols-1 g-3">
-                            <div class="card col" style="min-width: 270px">
-                                <img class="card-img-top" src="../bootstrap4/img_avatar1.png" alt="Card image"
-                                    style="width: 100%; height: 250px" />
-                                <div class="card-body">
-                                    <h5 class="card-title">Test</h5>
-                                    <h6 class="card-text" style="color: red">$160</h6>
-                                </div>
-                            </div>
-                            <div class="card col" style="min-width: 270px">
-                                <img class="card-img-top" src="../bootstrap4/img_avatar1.png" alt="Card image"
-                                    style="width: 100%; height: 250px" />
-                                <div class="card-body">
-                                    <h5 class="card-title">Test</h5>
-                                    <h6 class="card-text" style="color: red">$160</h6>
-                                </div>
-                            </div>
-                            <div class="card" style="min-width: 270px">
-                                <img class="card-img-top" src="../bootstrap4/img_avatar1.png" alt="Card image"
-                                    style="width: 100%; height: 250px" />
-                                <div class="card-body">
-                                    <h5 class="card-title">Test</h5>
-                                    <h6 class="card-text" style="color: red">$160</h6>
-                                </div>
-                            </div>
-                            <div class="card col" style="min-width: 270px">
-                                <img class="card-img-top" src="../bootstrap4/img_avatar1.png" alt="Card image"
-                                    style="width: 100%; height: 250px" />
-                                <div class="card-body">
-                                    <h5 class="card-title">Test</h5>
-                                    <h6 class="card-text" style="color: red">$160</h6>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row row-cols-1 g-3">
-                            <div class="card col" style="min-width: 270px">
-                                <img class="card-img-top" src="../bootstrap4/img_avatar1.png" alt="Card image"
-                                    style="width: 100%; height: 250px" />
-                                <div class="card-body">
-                                    <h5 class="card-title">Test</h5>
-                                    <h6 class="card-text" style="color: red">$160</h6>
-                                </div>
-                            </div>
-                            <div class="card col" style="min-width: 270px">
-                                <img class="card-img-top" src="../bootstrap4/img_avatar1.png" alt="Card image"
-                                    style="width: 100%; height: 250px" />
-                                <div class="card-body">
-                                    <h5 class="card-title">Test</h5>
-                                    <h6 class="card-text" style="color: red">$160</h6>
-                                </div>
-                            </div>
-                            <div class="card col" style="min-width: 270px">
-                                <img class="card-img-top" src="../bootstrap4/img_avatar1.png" alt="Card image"
-                                    style="width: 100%; height: 250px" />
-                                <div class="card-body">
-                                    <h5 class="card-title">Test</h5>
-                                    <h6 class="card-text" style="color: red">$160</h6>
-                                </div>
-                            </div>
-                            <div class="card col" style="min-width: 270px">
-                                <img class="card-img-top" src="../bootstrap4/img_avatar1.png" alt="Card image"
-                                    style="width: 100%; height: 250px" />
-                                <div class="card-body">
-                                    <h5 class="card-title">Test</h5>
-                                    <h6 class="card-text" style="color: red">$160</h6>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row row-cols-1 g-3">
-                            <div class="card col" style="min-width: 270px">
-                                <img class="card-img-top" src="../bootstrap4/img_avatar1.png" alt="Card image"
-                                    style="width: 100%; height: 250px" />
-                                <div class="card-body">
-                                    <h5 class="card-title">Test</h5>
-                                    <h6 class="card-text" style="color: red">$160</h6>
-                                </div>
-                            </div>
-                            <div class="card col" style="min-width: 270px">
-                                <img class="card-img-top" src="../bootstrap4/img_avatar1.png" alt="Card image"
-                                    style="width: 100%; height: 250px" />
-                                <div class="card-body">
-                                    <h5 class="card-title">Test</h5>
-                                    <h6 class="card-text" style="color: red">$160</h6>
-                                </div>
-                            </div>
-                            <div class="card col" style="min-width: 270px">
-                                <img class="card-img-top" src="../bootstrap4/img_avatar1.png" alt="Card image"
-                                    style="width: 100%; height: 250px" />
-                                <div class="card-body">
-                                    <h5 class="card-title">Test</h5>
-                                    <h6 class="card-text" style="color: red">$160</h6>
-                                </div>
-                            </div>
-                            <div class="card col" style="min-width: 270px">
-                                <img class="card-img-top" src="../bootstrap4/img_avatar1.png" alt="Card image"
-                                    style="width: 100%; height: 250px" />
-                                <div class="card-body">
-                                    <h5 class="card-title">Test</h5>
-                                    <h6 class="card-text" style="color: red">$160</h6>
-                                </div>
-                            </div>
-                        </div>
+                        @endforeach
+                    </div>
+                    <div style="text-align: center">
+                        <button href="#" class="view_bt">View All Products</button>
                     </div>
                 </div>
             </div>
-            <div style="text-align: center">
-                <button href="#" class="view_bt">View All Products</button>
-            </div>
         </div>
-    </section>
+            </section>
     <!------------------------------------------------------------------------->
     <!----------------------featred---------------------->
     <section class="featured">
@@ -531,5 +494,7 @@
     </section>
     <!---------------------------------------------------------------->
     <script src="{{ asset('assets\js\home.js') }}"></script>
-@endsection
+    <script>
 
+    </script>
+@endsection

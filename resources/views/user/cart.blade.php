@@ -72,8 +72,8 @@
                                 @forelse($cart->items as $item)
                                     <td class="p-3">
                                         <div class="d-flex align-items-center">
-                                            <button class="btn btn-sm btn-danger me-2"
-                                                onclick="deleteItem({{ $item->id }})">×</button>
+                                            <span class="btn btn-sm btn-danger me-2"
+                                                onclick="deleteItem({{ $item->id }})">×</span>
                                             <img src="{{ asset('images/' . $item->image->first()->image) }}"
                                                 alt="LCD Monitor" class="product-img me-2">
                                             <span>{{ $item->name }}</span>
@@ -145,19 +145,5 @@
             </div>
         </div>
     </section>
-    <script>
-        function deleteItem(itemId) {
-            $.ajax({
-                url: "{{ route('delete-item') }}",
-                method: "POST",
-                data: {
-                    _token: "{{ csrf_token() }}",
-                    itemId: itemId,
-                },
-                success: function(response) {
-                    console.log(response);
-                }
-            });
-        }
-    </script>
+
 @endsection

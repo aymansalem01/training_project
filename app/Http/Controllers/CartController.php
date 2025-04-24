@@ -76,9 +76,8 @@ class CartController extends Controller
 
         return redirect()->back()->with('success', 'Cart updated successfully.');
     }
-    public function delete(Request $request)
+    public function deleteItem(Request $request)
     {
-        dd($request);
         $user = Auth::user();
         $cart = $user->cart()->latest()->first();
         $item = Cart_items::where('cart_id', $cart->id)
