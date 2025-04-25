@@ -26,6 +26,7 @@
                         <div class="card-body">
                             <h5 class="card-title">{{ $wish->name }}</h5>
                             <h6 class="card-text" style="color: red">${{ $wish->price }}</h6>
+
                         </div>
                     </div>
                 @empty
@@ -64,6 +65,25 @@
                         <div class="card-body">
                             <h5 class="card-title">{{ $product->name }}</h5>
                             <h6 class="card-text" style="color: red;">${{ $product->price }}</h6>
+                            <div class="rating" style="margin-bottom: 10px;">
+                                @php
+                                    $averageRating = $product->review->avg('rate') ?? 0;
+                                    $fullStars = floor($averageRating);
+                                    $halfStar = ($averageRating - $fullStars) >= 0.5 ? 1 : 0;
+                                @endphp
+
+                                @for ($i = 1; $i <= 5; $i++)
+                                    @if ($i <= $fullStars)
+                                        <span class="fa fa-star checked"></span>
+                                    @elseif ($halfStar && $i == $fullStars + 1)
+                                        <span class="fa fa-star-half-alt checked"></span>
+                                        @php $halfStar = 0; @endphp
+                                    @else
+                                        <span class="fa fa-star"></span>
+                                    @endif
+                                @endfor
+                                <p style="display: inline">({{ $product->review->count() }} reviews)</p>
+                            </div>
                         </div>
                     </div>
                 @endforeach

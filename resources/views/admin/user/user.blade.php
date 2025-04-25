@@ -54,5 +54,8 @@
                 </div>
             </div>
         </div>
+        <div class="pagination-container">
+            {{ $users->links('pagination::bootstrap-4') }}
+        </div>
     </div>
 @endsection

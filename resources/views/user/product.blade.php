@@ -1,42 +1,58 @@
 @extends('user.layout.layout')
 @section('content')
+<style>
+
+</style>
     <div class="container" style="margin-top: 80px;margin-bottom: 140px;">
         <ol class="breadcrumb mb-0" style="font-size: 14px; ">
             <li class="breadcrumb-item">
                 <a href="#" class="opacity5" style="text-decoration: none; color: black">Home</a>
             </li>
-            <li class="breadcrumb-item" aria-current="page">{{$item->category->name}}</li>
-            <li class="breadcrumb-item" aria-current="page">{{$item->name}}</li>
+            <li class="breadcrumb-item" aria-current="page">{{ $item->category->name }}</li>
+            <li class="breadcrumb-item" aria-current="page">{{ $item->name }}</li>
         </ol>
         <div class="row" style="margin-top: 80px; max-height: 600px; margin-bottom: 140px;">
             <div class="col-md-1 d-flex flex-wrap flex-md-column">
-                @foreach ($item->image as $image )
-                <div class="mb-3  " style="height: 113px; text-align: center;background-color: #F5F5F5;">
-                    <img src="{{asset('images/' . $image->image)}}" alt="" class="w-100 mt-3">
-                </div>
+                @foreach ($item->image as $image)
+                    <div class="mb-3  " style="height: 113px; text-align: center;background-color: #F5F5F5;">
+                        <img src="{{ asset('images/' . $image->image) }}" alt="" class="w-100 mt-3">
+                    </div>
                 @endforeach
             </div>
             <div class="col-md-6">
-                <img src="{{asset ( 'images/' . $item->image->first()->image)}}" alt="" class="w-100 h-auto" style="background-color: #F5F5F5;">
+                <img src="{{ asset('images/' . $item->image->first()->image) }}" alt="" class="w-100 h-auto"
+                    style="background-color: #F5F5F5;">
             </div>
             <div class="col-md-4 ms-5">
 
                 <div class="w-100">
-                    <h1 class="product-title">{{$item->name}}</h1>
+                    <h1 class="product-title">{{ $item->name }}</h1>
                     <div class="d-flex gap-2 mt-3">
-                        <p class="rating-stars">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star-half-alt"></i>
+                        <div class="rdt-right">
+                            @php
+                                $averageRating = $item->review->avg('rate');
+                                $fullStars = floor($averageRating);
+                                $halfStar = $averageRating - $fullStars >= 0.5 ? 1 : 0;
+                            @endphp
+                            @for ($i = 1; $i <= 5; $i++)
+                                @if ($i <= $fullStars)
+                                    <span class="fa fa-star checked"></span>
+                                @elseif ($halfStar && $i == $fullStars + 1)
+                                    <span class="fa fa-star-half-alt checked"></span>
+                                    @php $halfStar = 0; @endphp
+                                @else
+                                    <span class="fa fa-star"></span>
+                                @endif
+                            @endfor
+
+                        </div>
                         </p>
-                        <p>({{$item->review->count()}} reviews)</p>
+                        <p>({{ $item->review->count() }} reviews)</p>
                         <p> | <span class="stock-text">in stock</span></p>
                     </div>
-                    <h2 class="product-title">${{$item->price}}</h2>
+                    <h2 class="product-title">${{ $item->price }}</h2>
                     <p class="mb-3">
-                       {{$item->describtion}}
+                        {{ $item->describtion }}
                     </p>
                     <hr>
 
@@ -70,21 +86,22 @@
                             </label>
                         </div>
                     </div>
-                    <form action="{{route('addFormSingle',$item->id)}}" method="post">
+                    <form action="{{ route('addFormSingle', $item->id) }}" method="post">
                         @csrf
-                    <div class="mb-4 d-flex align-items-center">
-                        <div class="d-flex me-2 pt-3" >
-                            <p class="quantity-btn" onclick="document.getElementById('quantity').value--">−</p>
-                            <input type="number" name="quantity" id="quantity" value="1" class="quantity-box">
-                            <p class="quantity-btn"
-                                onclick="document.getElementById('quantity').value = parseInt(document.getElementById('quantity').value) + 1">+</p>
+                        <div class="mb-4 d-flex align-items-center">
+                            <div class="d-flex me-2 pt-3">
+                                <p class="quantity-btn" onclick="document.getElementById('quantity').value--">−</p>
+                                <input type="number" name="quantity" id="quantity" value="1" class="quantity-box">
+                                <p class="quantity-btn"
+                                    onclick="document.getElementById('quantity').value = parseInt(document.getElementById('quantity').value) + 1">
+                                    +</p>
+                            </div>
+                            <button class="buy-btn" style="padding: 16px 48px;" type="submit">Buy Now</button>
+                            <a href="{{ route('addwishSingle', $item->id) }}" class="heart-btn ms-3">
+                                <i class="far fa-heart" style="font-size: 25px;"></i>
+                            </a>
                         </div>
-                        <button class="buy-btn" style="padding: 16px 48px;" type="submit">Buy Now</button>
-                        <a href="{{route('addwishSingle',$item->id)}}" class="heart-btn ms-3">
-                            <i class="far fa-heart" style="font-size: 25px;"></i>
-                        </a>
-                    </div>
-                </form>
+                    </form>
                     <!-- Delivery Info -->
                     <div class="delivery-box">
                         <div class="delivery-item">

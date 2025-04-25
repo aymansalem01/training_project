@@ -12,18 +12,19 @@ class AdminController extends Controller
 {
     public function index()
     {
-        return view('admin.dashboard');
+            $payments = Payment::with(['user','cart','coupon'])->get();
+        return view('admin.dashboard',['payments'=>$payments]);
     }
 
     public function feedback()
     {
-        $feedbacks = Feedback::get();
-        $subscribes = Subscribe::get();
+        $feedbacks = Feedback::paginate(10);
+        $subscribes = Subscribe::paginate(10);
         return view('admin.feedback',['feedbacks' => $feedbacks,'subscribes'=>$subscribes]);
     }
     public function payment()
     {
-        $payments = Payment::with(['user','cart','shipp','coupon'])->get();
+        $payments = Payment::with(['user','cart','shipp','coupon',])->get();
         return view('admin.payment',['payments' => $payments]);
     }
     public function show_payment(string $id )

@@ -5,6 +5,9 @@
     padding-top: 20px;
     padding-bottom: 1px;
 }
+.checked {
+    color: #FFD700;
+  }
 nav {
     background-color: white;
     color: black;

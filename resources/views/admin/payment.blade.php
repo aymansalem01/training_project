@@ -23,11 +23,11 @@
                                 @foreach ( $payments as $payment )
                                 <tr>
                                     <td>{{$payment->user->name}} </td>
-                                    <td>{{$payment->cart->quantity}} </td>
-                                    <td>{{$payment->payment_way}} </td>
+                                    <td>{{$payment->cart->items()->count()}} </td>
+                                    <td>{{$payment->paymet_way}} </td>
                                     <td>{{$payment->total_price}} </td>
                                     <td>{{$payment->shipp->address}}  </td>
-                                    <td>{{$payment->use_coupon}}</td>
+                                    <td>{{$payment->use_coupon == false ? 'no' : $payment->coupon}}</td>
                                     <td>
                                         <a href="{{ route('show_payment', $payment->id) }}"
                                             class="btn btn-sm btn-info me-2 iconsh">

@@ -7,6 +7,8 @@
     <link rel="apple-touch-icon" sizes="76x76" href="{{('assets1/img/apple-icon.png')}}">
     <link rel="icon" type="image/png" href="{{ asset('assets1/img/favicon.ico') }}">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <title>admin dashboard</title>
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no'
         name='viewport' />
@@ -100,14 +102,15 @@
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink"
                                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <span class="no-icon">Dropdown</span>
+                                    <span class="no-icon">account</span>
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                    <a class="dropdown-item" href="#">Action</a>
-                                    <a class="dropdown-item" href="#">Another action</a>
-                                    <a class="dropdown-item" href="#">Something</a>
-                                    <a class="dropdown-item" href="#">Something else here</a>
-                                    <a class="dropdown-item" href="#">Separated link</a>
+                                    <ul class="dropdown-menu dropdown-menu-dark dropdown-menu-end blur">
+                                        <li><a class="dropdown-item" style="font-size: 14px;" href="{{route('account')}}"><i
+                                                    class="fa-solid fa-user"></i> Manage My Account</a></li>
+                                        <li><a class="dropdown-item" href="{{route('logout')}}"><i style=" transform: scaleX(-1);"
+                                                    class="fa-solid fa-arrow-right-to-bracket"></i> Logout</a></li>
+                                    </ul>
                                 </div>
                             </li>
                         </ul>

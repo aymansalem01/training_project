@@ -9,7 +9,7 @@
                 </div>
                 <div class="row">
                     <div class="col-md-12">
-                        <div class="col-md-4 col-sm-6 mb-4">
+                        <div class="  d-flex flex-wrap justify-center  ">
                             @foreach ($categories as $category )
                             <div class="review-card">
                                 <h5 class="category-name">{{$category->name}}</h5>
@@ -25,6 +25,9 @@
                             @endforeach
                         </div>
                     </div>
+                </div>
+                <div class="pagination-container">
+                    {{ $categories->links('pagination::bootstrap-4') }}
                 </div>
             </div>
             @endsection

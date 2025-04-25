@@ -147,6 +147,25 @@
                                         <span
                                             style="color:black;margin-left; text-decoration: line-through ">{{ $item->price }}$</span>
                                     </h6>
+                                    <div class="rating" style="margin-bottom: 10px;">
+                                        @php
+                                            $averageRating = $item->review->avg('rate') ?? 0;
+                                            $fullStars = floor($averageRating);
+                                            $halfStar = ($averageRating - $fullStars) >= 0.5 ? 1 : 0;
+                                        @endphp
+
+                                        @for ($i = 1; $i <= 5; $i++)
+                                            @if ($i <= $fullStars)
+                                                <span class="fa fa-star checked"></span>
+                                            @elseif ($halfStar && $i == $fullStars + 1)
+                                                <span class="fa fa-star-half-alt checked"></span>
+                                                @php $halfStar = 0; @endphp
+                                            @else
+                                                <span class="fa fa-star"></span>
+                                            @endif
+                                        @endfor
+                                        <p style="display: inline">({{ $item->review->count() }} reviews)</p>
+                                    </div>
                                 </div>
                             </div>
                         @endforeach
@@ -285,6 +304,25 @@
                                 <span
                                     style="color:black;margin-left; text-decoration: line-through ">{{ $item->price }}$</span>
                             </h6>
+                            <div class="rating" style="margin-bottom: 10px;">
+                                @php
+                                    $averageRating = $item->review->avg('rate') ?? 0;
+                                    $fullStars = floor($averageRating);
+                                    $halfStar = ($averageRating - $fullStars) >= 0.5 ? 1 : 0;
+                                @endphp
+
+                                @for ($i = 1; $i <= 5; $i++)
+                                    @if ($i <= $fullStars)
+                                        <span class="fa fa-star checked"></span>
+                                    @elseif ($halfStar && $i == $fullStars + 1)
+                                        <span class="fa fa-star-half-alt checked"></span>
+                                        @php $halfStar = 0; @endphp
+                                    @else
+                                        <span class="fa fa-star"></span>
+                                    @endif
+                                @endfor
+                                <p style="display: inline">({{ $item->review->count() }} reviews)</p>
+                            </div>
                         </div>
                     </div>
                 @endforeach
@@ -377,6 +415,25 @@
                                                                 ${{ $item->price }}
                                                             </span>
                                                         </h6>
+                                                        <div class="rating" style="margin-bottom: 10px;">
+                                                            @php
+                                                                $averageRating = $item->review->avg('rate') ?? 0;
+                                                                $fullStars = floor($averageRating);
+                                                                $halfStar = ($averageRating - $fullStars) >= 0.5 ? 1 : 0;
+                                                            @endphp
+
+                                                            @for ($i = 1; $i <= 5; $i++)
+                                                                @if ($i <= $fullStars)
+                                                                    <span class="fa fa-star checked"></span>
+                                                                @elseif ($halfStar && $i == $fullStars + 1)
+                                                                    <span class="fa fa-star-half-alt checked"></span>
+                                                                    @php $halfStar = 0; @endphp
+                                                                @else
+                                                                    <span class="fa fa-star"></span>
+                                                                @endif
+                                                            @endfor
+                                                            <p style="display: inline">({{ $item->review->count() }} reviews)</p>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -409,6 +466,25 @@
                                                                 ${{ $item->price }}
                                                             </span>
                                                         </h6>
+                                                        <div class="rating" style="margin-bottom: 10px;">
+                                                            @php
+                                                                $averageRating = $item->review->avg('rate') ?? 0;
+                                                                $fullStars = floor($averageRating);
+                                                                $halfStar = ($averageRating - $fullStars) >= 0.5 ? 1 : 0;
+                                                            @endphp
+
+                                                            @for ($i = 1; $i <= 5; $i++)
+                                                                @if ($i <= $fullStars)
+                                                                    <span class="fa fa-star checked"></span>
+                                                                @elseif ($halfStar && $i == $fullStars + 1)
+                                                                    <span class="fa fa-star-half-alt checked"></span>
+                                                                    @php $halfStar = 0; @endphp
+                                                                @else
+                                                                    <span class="fa fa-star"></span>
+                                                                @endif
+                                                            @endfor
+                                                            <p style="display: inline">({{ $item->review->count() }} reviews)</p>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>

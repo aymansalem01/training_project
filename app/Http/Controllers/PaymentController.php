@@ -6,6 +6,7 @@ use App\Models\Cart;
 use App\Models\Payment;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Coupon;
 use App\Models\Shipp;
 use Illuminate\Support\Facades\Auth;
 
@@ -36,6 +37,15 @@ class PaymentController extends Controller
             'phone_number' => 'required | regex:/^07[0-9]{8}$/',
             'email' => 'required | email ',
         ]);
+        $total_price = $request->total_price;
+        if( $request->coupon != null){
+        $coupon = Coupon::where('code' , $request->copoun)->first();
+            if($coupon != null)
+            {
+                $total_price = ($total_price - ($total_price * ($coupon->value / 100)));
+            }
+            $coupon = null ;
+        }
         $shipp = Shipp::create([
             'user_id' => Auth::user()->id,
             'comp_name' => $request->company_name,
@@ -46,9 +56,9 @@ class PaymentController extends Controller
             'cart_id' => $request->cart,
             'paymet_way' => $request->drone,
             'shipp_id' => $shipp->id,
-            'total_price' => $request->total_price,
+            'total_price' => $total_price,
             'use_coupon' => $request->coupon != null ? true : false ,
-            'coupon_id' =>$request->coupon,
+            'coupon_id' =>$coupon,
         ]);
         Cart::find($request->cart)->update([
             'status' => 'checked_out'

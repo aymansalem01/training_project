@@ -68,7 +68,7 @@
                                 <i class="fa-solid fa-user"></i>
                             </button>
                             <ul class="dropdown-menu dropdown-menu-dark dropdown-menu-end blur">
-                                <li><a class="dropdown-item" style="font-size: 14px;" href="#"><i
+                                <li><a class="dropdown-item" style="font-size: 14px;" href="{{route('account')}}"><i
                                             class="fa-solid fa-user"></i> Manage My Account</a></li>
                                 <li><a class="dropdown-item" href="#"><i class="fa-solid fa-bag-shopping"></i> My
                                         Order</a></li>

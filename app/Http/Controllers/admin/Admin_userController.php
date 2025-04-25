@@ -12,7 +12,7 @@ class Admin_userController extends Controller
 
     public function index()
     {
-        $users = User::get();
+        $users = User::paginate(20);
         return view('admin.user.user',['users'=>$users]);
     }
 

@@ -13,11 +13,12 @@
             <p style="font-size: 16px;margin-top: 40px;">Your visited page not found. You may go home page.</p>
         </div>
         <div style="text-align: center;margin-top: 80px;">
-            <a
+            <a  href="{{route('home')}}"
                 style="padding: 16px 48px;
         background-color: #DB4444;
         border: none;
         color: white;
+        
         ">Back to home page </a>
         </div>
     </div>

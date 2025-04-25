@@ -9,7 +9,7 @@
         </div>
         <div class="row">
             <div class="col-md-12">
-                <div class="col-md-6">
+                <div class=" d-flex flex-wrap justify-center ">
                     @foreach ($items as $item)
                         <div class="review-card">
                             <img src="{{ asset('images/' . $item->image->first()->image) }}" alt="">
@@ -42,5 +42,8 @@
                     @endforeach
                 </div>
             </div>
+        </div>
+        <div class="pagination-container">
+            {{ $items->links('pagination::bootstrap-4') }}
         </div>
     @endsection

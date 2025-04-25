@@ -13,7 +13,7 @@ class ItemController extends Controller
 
     public function index()
     {
-        $items = Item::with(['image', 'category'])->get();
+        $items = Item::with(['image', 'category'])->paginate(9);
         return view('admin.item.item', ['items' => $items]);
     }
 
@@ -70,9 +70,16 @@ class ItemController extends Controller
 
     public function update(Request $request, string $id)
     {
-        $request->validate([]);
-
-
+        $request->validate([
+            'image' => 'mimes:jpg,jpeg,png|max:2048'
+        ]);
+        $image_path = uniqid() . '-' . $request->name . '.' . $request->image->extension();
+        $request->image->move(public_path('images'), $image_path);
+        Image::create([
+            'item_id' => $id,
+            'image' => $image_path
+        ]);
+        
         return $this->index()->with(['success' => 'item updated']);
     }
 

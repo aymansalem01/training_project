@@ -81,7 +81,7 @@
                                     </td>
                                     <td class="p-3">${{ $item->price }}</td>
                                     <td class="p-3">
-                                        <div class="input-group quantity-selector">
+                                        <div class="input-group quantity-selector ms-5">
                                             <input type="number" name="quantities[{{ $item->id }}]"
                                                 class="form-control" value="{{ $item->pivot->quantity }}" min="1">
                                         </div>

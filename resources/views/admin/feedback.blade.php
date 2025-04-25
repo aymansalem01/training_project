@@ -28,6 +28,9 @@
                     </div>
                 </div>
             </div>
+            <div class="pagination-container">
+                {{ $feedbacks->links('pagination::bootstrap-4') }}
+            </div>
             <div class="col-md-12">
                 <div class="card strpied-tabled-with-hover">
                     <div class="card-header ">
@@ -51,6 +54,9 @@
                     </div>
                 </div>
             </div>
+        </div>
+        <div class="pagination-container">
+            {{ $subscribes->links('pagination::bootstrap-4') }}
         </div>
     </div>
 @endsection
