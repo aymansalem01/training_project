@@ -30,17 +30,21 @@
                             <div class="carousel-item active">
                                 <img src="{{ asset('assets\images\11.png') }}" alt="iPhone 14 Promotion" class="d-block"
                                     style="width: 100%; height: 390px" />
-                                <div class="carousel-caption text-start" style="top: 50%; transform: translateY(-50%); bottom: auto; left: 10%;">
+                                <div class="carousel-caption text-start"
+                                    style="top: 50%; transform: translateY(-50%); bottom: auto; left: 10%;">
                                     <div class="d-flex align-items-center mb-3">
-                                        <img src="{{ asset('assets\images\apple.png') }}" alt="Apple Logo" style="width: 40px; height: auto; margin-right: 15px;">
+                                        <img src="{{ asset('assets\images\apple.png') }}" alt="Apple Logo"
+                                            style="width: 40px; height: auto; margin-right: 15px;">
                                         <span class="text-white">iPhone 14 Series</span>
                                     </div>
                                     <h1 class="display-4 fw-bold mb-3">Up to 10%<br>off Voucher</h1>
                                     <div class="mt-4">
                                         <a href="#" class="text-white text-decoration-none fw-bold">
                                             Shop Now
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
-                                                <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
+                                                <path fill-rule="evenodd"
+                                                    d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z" />
                                             </svg>
                                         </a>
                                         <hr style="width: 120px; height: 2px; opacity: 1;" class="mt-1">
@@ -50,17 +54,21 @@
                             <div class="carousel-item ">
                                 <img src="{{ asset('assets\images\11.png') }}" alt="iPhone 14 Promotion" class="d-block"
                                     style="width: 100%; height: 390px" />
-                                <div class="carousel-caption text-start" style="top: 50%; transform: translateY(-50%); bottom: auto; left: 10%;">
+                                <div class="carousel-caption text-start"
+                                    style="top: 50%; transform: translateY(-50%); bottom: auto; left: 10%;">
                                     <div class="d-flex align-items-center mb-3">
-                                        <img src="{{ asset('assets\images\apple.png') }}" alt="Apple Logo" style="width: 40px; height: auto; margin-right: 15px;">
+                                        <img src="{{ asset('assets\images\apple.png') }}" alt="Apple Logo"
+                                            style="width: 40px; height: auto; margin-right: 15px;">
                                         <span class="text-white">iPhone 14 Series</span>
                                     </div>
                                     <h1 class="display-4 fw-bold mb-3">Up to 10%<br>off Voucher</h1>
                                     <div class="mt-4">
                                         <a href="#" class="text-white text-decoration-none fw-bold">
                                             Shop Now
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
-                                                <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
+                                                <path fill-rule="evenodd"
+                                                    d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z" />
                                             </svg>
                                         </a>
                                         <hr style="width: 120px; height: 2px; opacity: 1;" class="mt-1">
@@ -70,17 +78,21 @@
                             <div class="carousel-item ">
                                 <img src="{{ asset('assets\images\11.png') }}" alt="iPhone 14 Promotion" class="d-block"
                                     style="width: 100%; height: 390px" />
-                                <div class="carousel-caption text-start" style="top: 50%; transform: translateY(-50%); bottom: auto; left: 10%;">
+                                <div class="carousel-caption text-start"
+                                    style="top: 50%; transform: translateY(-50%); bottom: auto; left: 10%;">
                                     <div class="d-flex align-items-center mb-3">
-                                        <img src="{{ asset('assets\images\apple.png') }}" alt="Apple Logo" style="width: 40px; height: auto; margin-right: 15px;">
+                                        <img src="{{ asset('assets\images\apple.png') }}" alt="Apple Logo"
+                                            style="width: 40px; height: auto; margin-right: 15px;">
                                         <span class="text-white">iPhone 14 Series</span>
                                     </div>
                                     <h1 class="display-4 fw-bold mb-3">Up to 10%<br>off Voucher</h1>
                                     <div class="mt-4">
                                         <a href="#" class="text-white text-decoration-none fw-bold">
                                             Shop Now
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
-                                                <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
+                                                <path fill-rule="evenodd"
+                                                    d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z" />
                                             </svg>
                                         </a>
                                         <hr style="width: 120px; height: 2px; opacity: 1;" class="mt-1">
@@ -119,7 +131,10 @@
                                     alt="Card image" style="width: 100%; height: 250px" />
                                 <a onclick="AddWishlist({{ $item->id }})">
                                     <i class="fa-solid fa-heart card_icon"></i></a>
-                                <div style="background-color: black; color: white; padding: 5px; text-align: center;">
+                                    <a href="{{route('product',$item->id)}}"><i class="fa-solid fa-eye card_icon" style="top: 50px"></i></a>
+
+                                <div class="add_tocart"
+                                    style="background-color: black; color: white; padding: 5px; text-align: center;">
                                     <p style="text-decoration: none;color: white;font-size: 12px;"
                                         onclick="addItem({{ $item->id }})">
                                         <span><i class="fa-solid fa-cart-plus"> </i> </span>
@@ -255,7 +270,9 @@
                             alt="Card image" style="width: 100%; height: 250px" />
                         <a onclick="AddWishlist({{ $item->id }})">
                             <i class="fa-solid fa-heart card_icon"></i></a>
-                        <div style="background-color: black; color: white; padding: 5px; text-align: center;">
+                            <a href="{{route('product',$item->id)}}"><i class="fa-solid fa-eye card_icon" style="top: 50px"></i></a>
+                        <div class="add_tocart"
+                         style="background-color: black; color: white; padding: 5px; text-align: center;">
                             <p style="text-decoration: none;color: white;font-size: 12px;"
                                 onclick="addItem({{ $item->id }})">
                                 <span><i class="fa-solid fa-cart-plus"> </i> </span>
@@ -327,7 +344,7 @@
                         </button>
                     </div>
                 </div>
-                <div class="glider-contain" >
+                <div class="glider-contain">
                     <div class="glider glider2 p-5">
                         @foreach ($all->chunk(8) as $group)
                             <div>
@@ -342,7 +359,9 @@
                                                     <a onclick="AddWishlist({{ $item->id }})">
                                                         <i class="fa-solid fa-heart card_icon"></i>
                                                     </a>
-                                                    <div
+                                                    <a href="{{route('product',$item->id)}}"><i class="fa-solid fa-eye card_icon" style="top: 50px"></i></a>
+
+                                                    <div class="add_tocart"
                                                         style="background-color: black; color: white; padding: 5px; text-align: center;">
                                                         <p style="font-size: 12px; cursor: pointer;"
                                                             onclick="addItem({{ $item->id }})">
@@ -371,9 +390,10 @@
                                                         src="{{ asset('images/' . ($item->image->first()->image ?? 'default.jpg')) }}"
                                                         alt="Card image" style="width: 100%; height: 250px" />
                                                     <a onclick="AddWishlist({{ $item->id }})">
-                                                        <i class="fa-solid fa-heart card_icon"></i>
-                                                    </a>
-                                                    <div
+                                                        <i class="fa-solid fa-heart card_icon"></i></a>
+                                                        <a href="{{route('product',$item->id)}}"><i class="fa-solid fa-eye card_icon" style="top: 50px"></i></a>
+
+                                                    <div class="add_tocart"
                                                         style="background-color: black; color: white; padding: 5px; text-align: center;">
                                                         <p style="font-size: 12px; cursor: pointer;"
                                                             onclick="addItem({{ $item->id }})">
@@ -404,7 +424,7 @@
                 </div>
             </div>
         </div>
-            </section>
+    </section>
     <!------------------------------------------------------------------------->
     <!----------------------featred---------------------->
     <section class="featured">
@@ -494,7 +514,5 @@
     </section>
     <!---------------------------------------------------------------->
     <script src="{{ asset('assets\js\home.js') }}"></script>
-    <script>
-
-    </script>
+    <script></script>
 @endsection

@@ -18,4 +18,13 @@ class PageLoadController extends Controller
         $all = Item::get();
         return view('user.home',['items'=>$items , 'best_sales' =>$best_sales , 'all' => $all]);
     }
+    public function product(string $id)
+    {
+        $item = Item::where('id',$id)->with(['review','image','category'])->first();
+        $products = Item::withCount('review')
+        ->orderByDesc('review_count')
+        ->limit(4)
+        ->get();
+        return view('user.product',['item'=>$item,'products' => $products]);
+    }
 }

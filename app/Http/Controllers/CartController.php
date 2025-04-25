@@ -16,7 +16,10 @@ class CartController extends Controller
             $this->createCart();
         }
 
-        $cart = Cart::where('user_id', Auth::id())->with('items')->first();
+        $cart = Cart::where('user_id', Auth::id())
+            ->where('status', 'active')
+            ->with('items')
+            ->first();
 
         $total_price = 0;
 
@@ -30,7 +33,7 @@ class CartController extends Controller
     }
     private function hasCart(): bool
     {
-        if (Auth::user()->cart()->exists()) {
+        if (Auth::user()->cart()->where('status', 'active')->exists()) {
             return true;
         }
         return false;
@@ -46,7 +49,10 @@ class CartController extends Controller
     public function addItem(Request $request)
     {
         $user = Auth::user();
-        $cart = $user->cart()->latest()->first();
+        if (!$this->hasCart()) {
+            $this->createCart();
+        }
+        $cart = $user->cart()->where('status', 'active')->latest()->first();
         $itemId = $request->post("itemId");
         $existingItem = Cart_items::where('cart_id', $cart->id)
             ->where('item_id', $itemId)
@@ -79,7 +85,12 @@ class CartController extends Controller
     public function deleteItem(Request $request)
     {
         $user = Auth::user();
-        $cart = $user->cart()->latest()->first();
+
+        $cart = $user->cart()
+        ->where('status','active')
+        ->latest()
+        ->first();
+
         $item = Cart_items::where('cart_id', $cart->id)
             ->where('item_id', $request->itemId)
             ->first();
@@ -88,4 +99,31 @@ class CartController extends Controller
 
         return $this->index();
     }
+    public function addFormSingle(Request $request, string $id)
+    {
+        $user = Auth::user();
+
+        if (!$this->hasCart()) {
+            $this->createCart();
+        }
+
+        $cart = $user->cart()->where('status', 'active')->latest()->first();
+
+        $item = $cart->items()->where('item_id', $id)->first();
+
+        if ($item) {
+            $cart->items()->updateExistingPivot($id, [
+                'quantity' => $item->pivot->quantity + $request->quantity
+            ]);
+        } else {
+            Cart_items::create([
+                'cart_id' => $cart->id,
+                'item_id' => $id,
+                'quantity' => $request->quantity,
+            ]);
+        }
+
+        return redirect()->back()->with(['message' => 'Item added to cart successfully']);
+    }
+
 }

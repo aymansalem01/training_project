@@ -12,6 +12,7 @@ use App\Http\Controllers\admin\CategoryController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\FeedbackController;
 use App\Http\Controllers\PageLoadController;
+use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\WishlistController;
 
 
@@ -67,12 +68,17 @@ Route::post('/delete-item', [CartController::class, 'deleteItem'])->name('delete
 
 Route::post('/wishlist.add', [WishlistController::class, 'addwish'])->name('wishlist.add');
 Route::post('/wishlist.delete', [WishlistController::class, 'deletewish'])->name('wishlist.delete');
-Route::get('/wishlist/move-to-cart', [WishlistController::class, 'moveAllToCart'])->name('wishlist.moveToCart');
+Route::put('/wishlist/move-to-cart', [WishlistController::class, 'moveAllToCart'])->name('wishlist.moveToCart');
 
 
 
+Route::get('product/{id}',[PageLoadController::class,'product'])->name('product');
+Route::post('addfromsingle/{id}',[CartController::class,'addFormSingle'])->name('addFormSingle');
+Route::get('addwishSingle/{id}',[WishlistController::class,'addwishSingle'])->name('addwishSingle');
 
 
+Route::get('checkout',[PaymentController::class,'index'])->name('checkout');
+Route::post('order',[PaymentController::class,'order'])->name('order');
 
 
 

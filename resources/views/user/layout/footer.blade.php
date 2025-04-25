@@ -50,7 +50,7 @@
                 <h5 style="font-size: 20px">Quick Link</h5>
                 <ul>
                     <li><a href="#" style="font-size: 16px">Privacy Policy</a></li>
-                    <li><a href="{{ route('about') }}" style="font-size: 16px">About Us</a></li>
+                    <li><a href="{{ route('about') }}" style="font-size: 16px">Terms Of Use</a></li>
                     <li><a href="{{ route('contact') }}" style="font-size: 16px">FAQ</a></li>
                     <li><a href="{{ route('contact') }}" style="font-size: 16px">Contact</a></li>
                 </ul>
@@ -127,7 +127,7 @@
     function AddWishlist(itemId) {
         console.log("Sending ID:", itemId);
         $.ajax({
-            url: "{{ route('wishlist.add') }}",
+            url: "{{ url('/wishlist.add') }}",
             method: "POST",
             data: {
                 _token: "{{ csrf_token() }}",
@@ -164,6 +164,7 @@
             }
         });
     }
+
 </script>
 </body>
 

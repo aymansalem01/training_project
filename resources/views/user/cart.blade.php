@@ -137,8 +137,8 @@
                             <strong>${{ $total_price }}</strong>
                         </div>
                         <div style="text-align: center">
-                            <button class="btn checkout-btn text-white" style="padding: 16px 48px">Process to
-                                checkout</button>
+                            <a href="{{route('checkout')}}"  class="btn checkout-btn text-white" style="padding: 16px 48px">Process to
+                                checkout</a>
                         </div>
                     </div>
                 </div>
