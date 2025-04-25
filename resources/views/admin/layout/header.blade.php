@@ -117,3 +117,41 @@
                     </div>
                 </div>
             </nav>
+            <script src="https://js.pusher.com/8.4.0/pusher.min.js"></script>
+
+            <script>
+                document.addEventListener("DOMContentLoaded", function () {
+                    const authUserId = {{ auth()->user()->id }}
+                        getNotifications();
+                })
+
+                function getNotifications() {
+                    const notificationSection = document.getElementById('notifications-section');
+                    $.ajax({
+                        url: "{{ route('get-notifications') }}",
+                        method: "GET",
+                        success: function (data) {
+                            notificationSection.innerHTML = '';
+                            data.forEach(element => {
+                                notificationSection.innerHTML += `
+                                    <a class="dropdown-item" href="#">${JSON.parse(element.data).message}</a>
+                                `
+                            });
+                        }
+                    })
+                }
+
+            </script>
+            <script>
+
+                Pusher.logToConsole = true;
+
+                var pusher = new Pusher('8c08e0e260c9c94ebd22', {
+                    cluster: 'ap2'
+                });
+
+                var channel = pusher.subscribe('payment.1');
+                channel.bind('my-event', function (data) {
+                    getNotifications();
+                });
+            </script>

@@ -80,5 +80,7 @@ Route::get('addwishSingle/{id}',[WishlistController::class,'addwishSingle'])->na
 Route::get('checkout',[PaymentController::class,'index'])->name('checkout');
 Route::post('order',[PaymentController::class,'order'])->name('order');
 
-
+Route::get('get-notifications',[AdminController::class,'getNotifications'])
+    ->name('get-notifications')
+    ->middleware('auth');
 

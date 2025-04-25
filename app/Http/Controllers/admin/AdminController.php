@@ -2,14 +2,23 @@
 
 namespace App\Http\Controllers\admin;
 
-use App\Http\Controllers\Controller;
-use App\Models\Feedback;
 use App\Models\Payment;
+use App\Models\Feedback;
 use App\Models\Subscribe;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Notification;
 
 class AdminController extends Controller
 {
+    public function getNotifications()
+    {
+        $notifications = Notification::where("notifiable_type" ,'App\Models\User')
+            ->where("notifiable_id" ,Auth::id())->get();
+
+        return response()->json($notifications);
+    }
     public function index()
     {
             $payments = Payment::with(['user','cart','coupon'])->get();

@@ -3,12 +3,16 @@
 namespace App\Http\Controllers;
 
 use App\Models\Cart;
+use App\Models\User;
+use App\Models\Shipp;
+use App\Models\Coupon;
 use App\Models\Payment;
+use App\Events\PaymentEvent;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Models\Coupon;
-use App\Models\Shipp;
 use Illuminate\Support\Facades\Auth;
+use App\Notifications\PaymentNotification;
+use Illuminate\Support\Facades\Notification;
 
 class PaymentController extends Controller
 {
@@ -38,13 +42,12 @@ class PaymentController extends Controller
             'email' => 'required | email ',
         ]);
         $total_price = $request->total_price;
-        if( $request->coupon != null){
-        $coupon = Coupon::where('code' , $request->copoun)->first();
-            if($coupon != null)
-            {
+        if ($request->coupon != null) {
+            $coupon = Coupon::where('code', $request->copoun)->first();
+            if ($coupon != null) {
                 $total_price = ($total_price - ($total_price * ($coupon->value / 100)));
             }
-            $coupon = null ;
+            $coupon = null;
         }
         $shipp = Shipp::create([
             'user_id' => Auth::user()->id,
@@ -57,12 +60,15 @@ class PaymentController extends Controller
             'paymet_way' => $request->drone,
             'shipp_id' => $shipp->id,
             'total_price' => $total_price,
-            'use_coupon' => $request->coupon != null ? true : false ,
-            'coupon_id' =>$coupon,
+            'use_coupon' => $request->coupon != null ? true : false,
+            'coupon_id' => $coupon,
         ]);
         Cart::find($request->cart)->update([
             'status' => 'checked_out'
         ]);
-        return redirect()->route('home')->with(['success'=>'your order in way']);
+        $admins = User::where('role', 'admin')->get();
+        Notification::send($admins, new PaymentNotification(Auth::user()->name));
+        event(new PaymentEvent());
+        return redirect()->route('home')->with(['success' => 'your order in way']);
     }
 }
