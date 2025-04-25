@@ -42,6 +42,7 @@ class PaymentController extends Controller
             'email' => 'required | email ',
         ]);
         $total_price = $request->total_price;
+        $coupon = null;
         if ($request->coupon != null) {
             $coupon = Coupon::where('code', $request->copoun)->first();
             if ($coupon != null) {
